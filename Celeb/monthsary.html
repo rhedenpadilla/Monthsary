@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our 2nd Monthsary Celebration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&family=Yellowtail&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary: #FFD700; /* Yellow */
+            --secondary: #4169E1; /* Royal Blue */
+            --accent: #FF6B6B; /* Red for hearts */
+            --light: #FFF9C4; /* Light yellow */
+            --dark: #1A237E; /* Dark blue */
+            --glass: rgba(255, 255, 255, 0.15);
+            --glass-dark: rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--light), #E3F2FD);
+            color: #333;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 1200px;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Login Screen */
+        #login-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            min-height: 600px;
+            background: linear-gradient(120deg, rgba(255, 215, 0, 0.7), rgba(65, 105, 225, 0.7));
+            border-radius: 24px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .login-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: var(--dark);
+            font-family: 'Montserrat', sans-serif;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 16px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--secondary);
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--dark);
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .login-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(65, 105, 225, 0.3);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--secondary);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .login-btn:hover {
+            background: #304FFE;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .error-message {
+            color: #ff3333;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: 500;
+            display: none;
+        }
+
+        /* Header & Navigation */
+        header {
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 217, 0, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid var(--secondary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-family: 'Yellowtail', cursive;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--secondary);
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            padding: 12px 24px;
+            background: var(--secondary);
+            border: none;
+            border-radius: 30px;
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-btn:hover {
+            background: #304FFE;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-btn.active {
+            background: var(--accent);
+        }
+
+        /* Sections */
+        .section {
+            display: none;
+            padding: 40px 20px;
+            min-height: 70vh;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: var(--secondary);
+            font-family: 'Montserrat', sans-serif;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Home Section */
+        .home-content {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .months-count {
+            font-size: 100px;
+            color: var(--accent);
+            margin: 20px 0;
+            text-shadow: 0 0 20px rgba(255, 107, 107, 0.4);
+            font-family: 'Yellowtail', cursive;
+        }
+
+        .love-quote {
+            font-style: italic;
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        .hearts {
+            font-size: 40px;
+            color: var(--accent);
+            margin: 30px 0;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Quiz Section */
+        .quiz-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--secondary);
+        }
+
+        .question {
+            font-size: 22px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .option {
+            padding: 15px;
+            background: var(--light);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid var(--primary);
+        }
+
+        .option:hover {
+            background: var(--primary);
+            transform: scale(1.03);
+        }
+
+        .quiz-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .quiz-results {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--light);
+            border-radius: 15px;
+            border: 2px solid var(--primary);
+        }
+
+        .score-history {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            border: 1px solid var(--secondary);
+        }
+
+        .score-history h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .score-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid var(--primary);
+        }
+
+        /* Message Section */
+        .message-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--secondary);
+        }
+
+        .message {
+            line-height: 1.8;
+            font-size: 18px;
+            text-align: justify;
+            color: var(--dark);
+        }
+
+        .message-signature {
+            text-align: right;
+            margin-top: 30px;
+            font-style: italic;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* Memory Section */
+        .memories-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .memory-card {
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+        }
+
+        .memory-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .memory-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .memory-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, var(--dark), transparent);
+            padding: 20px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            color: white;
+            text-align: center;
+        }
+
+        .memory-card:hover .memory-overlay {
+            opacity: 1;
+        }
+
+        .add-memory {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--light);
+            cursor: pointer;
+            border: 2px dashed var(--secondary);
+        }
+
+        .add-memory i {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .add-memory p {
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        /* Video Section */
+        .video-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .video-wrapper {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            aspect-ratio: 16/9;
+            margin-bottom: 20px;
+            border: 2px solid var(--primary);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .video-placeholder i {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .add-video {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+            max-width: 800px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--primary);
+        }
+
+        .add-video input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--secondary);
+            background: white;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .add-video button {
+            padding: 12px 25px;
+            background: var(--secondary);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .add-video button:hover {
+            background: #304FFE;
+        }
+
+        /* Music Section */
+        .music-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .spotify-player {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border: 2px solid var(--primary);
+        }
+
+        .song-dedication {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            border-top: 2px solid var(--primary);
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .options {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            
+            .months-count {
+                font-size: 70px;
+            }
+            
+            .memories-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .memories-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .logo {
+                font-size: 36px;
+            }
+            
+            #login-screen {
+                padding: 20px;
+            }
+            
+            .login-container {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Login Screen -->
+        <div id="login-screen">
+            <div class="login-container">
+                <h2 class="login-title">Our Secret Monthsary</h2>
+                <input type="text" class="login-input" id="callsign" placeholder="Enter your callsign" autocomplete="off">
+                <input type="text" class="login-input" id="monthsary-date" placeholder="Enter our monthsary date (MM/DD)" autocomplete="off">
+                <button class="login-btn" id="login-btn">Enter Our Celebration</button>
+                <div class="error-message" id="error-message">Incorrect callsign or monthsary date. Please try again.</div>
+            </div>
+        </div>
+
+        <!-- Main Content (initially hidden) -->
+        <div id="main-content" style="display: none;">
+            <header>
+                <div class="logo">Happy 2nd <span>Monthsary</span>!</div>
+                <div class="nav-container">
+                    <button class="nav-btn active" data-target="home"><i class="fas fa-home"></i> Home</button>
+                    <button class="nav-btn" data-target="quiz"><i class="fas fa-question-circle"></i> Quiz</button>
+                    <button class="nav-btn" data-target="music"><i class="fas fa-music"></i> Music</button>
+                    <button class="nav-btn" data-target="message"><i class="fas fa-envelope"></i> Message</button>
+                    <button class="nav-btn" data-target="memory"><i class="fas fa-images"></i> Memories</button>
+                    <button class="nav-btn" data-target="video"><i class="fas fa-video"></i> Video</button>
+                </div>
+            </header>
+
+            <!-- Home Section -->
+            <section id="home" class="section active">
+                <div class="home-content">
+                    <h1>Celebrating Our Love</h1>
+                    <div class="months-count">2</div>
+                    <div class="hearts">❤️ ❤️ ❤️</div>
+                    <p class="love-quote">"The best thing to hold onto in life is each other." - Audrey Hepburn</p>
+                </div>
+            </section>
+
+            <!-- Quiz Section -->
+            <section id="quiz" class="section">
+                <h2 class="section-title">How Well Do You Know Us?</h2>
+                <div class="quiz-container">
+                    <div class="question" id="question">Question will appear here</div>
+                    <div class="options" id="options">
+                        <!-- Options will be generated by JavaScript -->
+                    </div>
+                    <div class="quiz-nav">
+                        <button class="nav-btn" id="prev-btn"><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button class="nav-btn" id="next-btn">Next <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                    <div class="quiz-results" id="results" style="display: none;">
+                        <h3>Quiz Results</h3>
+                        <p id="score-text">Your score: 0/5</p>
+                        <p id="remark"></p>
+                        <button class="nav-btn" id="retake-btn" style="margin-top: 15px;"><i class="fas fa-redo"></i> Retake Quiz</button>
+                    </div>
+                </div>
+                <div class="score-history" id="score-history" style="display: none;">
+                    <h3>Your Quiz History</h3>
+                    <div id="history-list"></div>
+                </div>
+            </section>
+
+            <!-- Music Section -->
+            <section id="music" class="section">
+                <h2 class="section-title">Our Songs</h2>
+                <div class="music-container">
+                    <div class="spotify-player">
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6lrJf107l0A5HyITOOKvM2?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>
+                    <div class="song-dedication">
+                        "Every song  in this playlist reminds me of us. Their music speaks the words my heart can't express."
+                    </div>
+                </div>
+            </section>
+
+            <!-- Message Section -->
+            <section id="message" class="section">
+                <h2 class="section-title">My Message to You</h2>
+                <div class="message-container">
+                    <p class="message">
+                        My love,<br><br>
+                        Happy 2nd monthsary! These past two months with you have been the most amazing time of my life. Every day with you is a gift that I cherish deeply. Your smile brightens my day, your laughter is my favorite melody, and your love is the greatest blessing I've ever received.<br><br>
+                        I look forward to creating many more beautiful memories with you. Through all the ups and downs, know that my love for you remains constant and true. You are my today and all of my tomorrows.<br><br>
+                        Thank you for being you, and for sharing this incredible journey with me.
+                    </p>
+                    <p class="message-signature">Forever your BUBBA,<br>Dhen</p>
+                </div>
+            </section>
+
+            <!-- Memory Section -->
+            <section id="memory" class="section">
+                <h2 class="section-title">Our Memories</h2>
+                <div class="memories-container">
+                    <div class="memory-card">
+                        <div class="memory-img" style="background: linear-gradient(45deg, #FFD700, #4169E1); display: flex; justify-content: center; align-items: center; color: white; font-size: 20px;">
+                            <img src="kamay.jpg" alt="CABS" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="memory-overlay">Our Hands</div>
+                    </div>
+                    <div class="memory-card">
+                        <div class="memory-img" style="background: linear-gradient(45deg, #4169E1, #FF6B6B); display: flex; justify-content: center; align-items: center; color: white; font-size: 20px;">
+                             <img src="hehe.jpg" alt="CABS" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="memory-overlay">Firt Selfie</div>
+                    </div>
+                    <div class="memory-card">
+                        <div class="memory-img" style="background: linear-gradient(45deg, #FF6B6B, #FFD700); display: flex; justify-content: center; align-items: center; color: white; font-size: 20px;">
+                             <img src="brew_deck.jpg" alt="SJ7" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="memory-overlay">First Cafe</div>
+                    </div>
+                    <div class="memory-card">
+                        <div class="memory-img" style="background: linear-gradient(45deg, #FFD700, #4169E1); display: flex; justify-content: center; align-items: center; color: white; font-size: 20px;">
+                            <img src="cabs.jpg" alt="CABS" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="memory-overlay">CABS AGAIN</div>
+                    </div>
+                    <div class="memory-card">
+                        <div class="memory-img" style="background: linear-gradient(45deg, #4169E1, #FF6B6B); display: flex; justify-content: center; align-items: center; color: white; font-size: 20px;">
+                             <img src="random1.png" alt="CABS" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="memory-overlay">Video Call with Baby</div>
+                    </div>
+                    <div class="memory-card">
+                        <div class="memory-img" style="background: linear-gradient(45deg, #FF6B6B, #FFD700); display: flex; justify-content: center; align-items: center; color: white; font-size: 20px;">
+                             <img src="hehe2.jpg" alt="SJ7" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="memory-overlay">LUNCH</div>
+                    </div>
+                    <div class="memory-card">
+                        <div class="memory-img" style="background: linear-gradient(45deg, #FFD700, #4169E1); display: flex; justify-content: center; align-items: center; color: white; font-size: 20px;">
+                            <img src="wings.jpg" alt="CABS" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="memory-overlay">CALAMBA</div>
+                    </div>
+                    <div class="memory-card">
+                        <div class="memory-img" style="background: linear-gradient(45deg, #4169E1, #FF6B6B); display: flex; justify-content: center; align-items: center; color: white; font-size: 20px;">
+                             <img src="kiss.jpg" alt="CABS" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="memory-overlay">CALAMBA</div>
+                    </div>
+                    <div class="memory-card">
+                        <div class="memory-img" style="background: linear-gradient(45deg, #FF6B6B, #FFD700); display: flex; justify-content: center; align-items: center; color: white; font-size: 20px;">
+                             <img src="galit.jpg" alt="SJ7" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="memory-overlay">MOVIE TIME</div>
+                    </div>
+                    <div class="memory-card">
+                        <div class="memory-img" style="background: linear-gradient(45deg, #FFD700, #4169E1); display: flex; justify-content: center; align-items: center; color: white; font-size: 20px;">
+                            <img src="chowking.jpg" alt="CABS" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="memory-overlay">CABUYAO BAYAN</div>
+                    </div>
+                    <div class="memory-card">
+                        <div class="memory-img" style="background: linear-gradient(45deg, #4169E1, #FF6B6B); display: flex; justify-content: center; align-items: center; color: white; font-size: 20px;">
+                             <img src="cute.jpg" alt="CABS" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="memory-overlay">RANDOM UPDATE/div>
+                    </div>
+                    <div class="memory-card">
+                        <div class="memory-img" style="background: linear-gradient(45deg, #FF6B6B, #FFD700); display: flex; justify-content: center; align-items: center; color: white; font-size: 20px;">
+                             <img src="random2.jpg" alt="SJ7" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="memory-overlay">RANDOM UPDATE</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Video Section -->
+            <section id="video" class="section">
+                <h2 class="section-title">Our Video</h2>
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <div class="video-placeholder">
+                            <iframe src="https://drive.google.com/file/d/1bOlTBzL5AoD8oN9bVk1kD5E1B2ajbZcP/preview" width="1080" height="720" allow="autoplay"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <p>Made with ❤️ for our 2nd monthsary | Forever Yours</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Authentication - Set your secret codes here
+        const SECRET_CALLSIGN = "baby"; // Change this to your secret callsign
+        const SECRET_MONTHSARY_DATE = "07/09"; // Change this to your monthsary date (MM/DD)
+
+        // Quiz questions and answers
+        const quizQuestions = [
+            {
+                question: "When did we first go to CABS?",
+                options: ["July 12", "July 11", "July 10", "July 14"],
+                correctAnswer: 1 // July 11 (index 1)
+            },
+            {
+                question: "When did I introduced you to my mom?",
+                options: ["July 17", "July 19", "July 16", "July 14"],
+                correctAnswer: 2 // July 16 (index 2)
+            },
+            {
+                question: "How many times the word 'baby' appeared in our chat as of August 8, 2025 at exactly 7:03 PM?",
+                options: ["110", "144", "166", "117"],
+                correctAnswer: 1 // 144 (index 1)
+            },
+            {
+                question: "How many times the word 'call' appeared in our chat as of August 8, 2025 at exactly 7:03 PM?",
+                options: ["110", "144", "166", "117"],
+                correctAnswer: 0 // 110 (index 0)
+            },
+            {
+                question: "How many times the word 'miss' appeared in our chat as of August 8, 2025 at exactly 7:03 PM?",
+                options: ["110", "144", "166", "117"],
+                correctAnswer: 3 // 117 (index 3)
+            }
+        ];
+
+        // Quiz state
+        let currentQuestion = 0;
+        let userAnswers = Array(quizQuestions.length).fill(null);
+        let scoreHistory = [];
+
+        // DOM elements
+        const questionElement = document.getElementById('question');
+        const optionsElement = document.getElementById('options');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const resultsElement = document.getElementById('results');
+        const scoreTextElement = document.getElementById('score-text');
+        const remarkElement = document.getElementById('remark');
+        const retakeBtn = document.getElementById('retake-btn');
+        const scoreHistoryElement = document.getElementById('score-history');
+        const historyListElement = document.getElementById('history-list');
+        const errorMessage = document.getElementById('error-message');
+
+        // Login functionality
+        document.getElementById('login-btn').addEventListener('click', function() {
+            const callsign = document.getElementById('callsign').value.trim().toLowerCase();
+            const monthsaryDate = document.getElementById('monthsary-date').value.trim();
+            
+            if (callsign === SECRET_CALLSIGN && monthsaryDate === SECRET_MONTHSARY_DATE) {
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                loadQuestion();
+            } else {
+                errorMessage.style.display = 'block';
+                // Shake animation for wrong credentials
+                document.querySelector('.login-container').animate([
+                    { transform: 'translateX(0)' },
+                    { transform: 'translateX(-10px)' },
+                    { transform: 'translateX(10px)' },
+                    { transform: 'translateX(-10px)' },
+                    { transform: 'translateX(10px)' },
+                    { transform: 'translateX(0)' }
+                ], {
+                    duration: 500,
+                    iterations: 1
+                });
+            }
+        });
+
+        // Allow pressing Enter to submit login form
+        document.getElementById('monthsary-date').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('login-btn').click();
+            }
+        });
+
+        // Load question function
+        function loadQuestion() {
+            const question = quizQuestions[currentQuestion];
+            questionElement.textContent = question.question;
+            
+            optionsElement.innerHTML = '';
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.classList.add('option');
+                if (userAnswers[currentQuestion] === index) {
+                    optionElement.style.background = 'var(--primary)';
+                }
+                optionElement.textContent = option;
+                optionElement.addEventListener('click', () => selectAnswer(index));
+                optionsElement.appendChild(optionElement);
+            });
+            
+            updateNavigation();
+        }
+
+        // Select answer function
+        function selectAnswer(index) {
+            userAnswers[currentQuestion] = index;
+            loadQuestion();
+        }
+
+        // Update navigation buttons
+        function updateNavigation() {
+            prevBtn.style.display = currentQuestion === 0 ? 'none' : 'block';
+            
+            if (currentQuestion === quizQuestions.length - 1) {
+                nextBtn.textContent = 'Finish Quiz ';
+                nextBtn.innerHTML = 'Finish Quiz <i class="fas fa-check"></i>';
+            } else {
+                nextBtn.textContent = 'Next ';
+                nextBtn.innerHTML = 'Next <i class="fas fa-arrow-right"></i>';
+            }
+        }
+
+        // Next button event
+        nextBtn.addEventListener('click', () => {
+            if (currentQuestion < quizQuestions.length - 1) {
+                currentQuestion++;
+                loadQuestion();
+            } else {
+                finishQuiz();
+            }
+        });
+
+        // Previous button event
+        prevBtn.addEventListener('click', () => {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                loadQuestion();
+            }
+        });
+
+        // Finish quiz function
+        function finishQuiz() {
+            // Calculate score
+            let score = 0;
+            userAnswers.forEach((answer, index) => {
+                if (answer === quizQuestions[index].correctAnswer) {
+                    score++;
+                }
+            });
+            
+            // Display results
+            scoreTextElement.textContent = `Your score: ${score}/${quizQuestions.length}`;
+            
+            // Add remark based on score
+            if (score === quizQuestions.length) {
+                remarkElement.textContent = "Perfect! You know us so well! ❤️";
+            } else if (score >= quizQuestions.length * 0.7) {
+                remarkElement.textContent = "Great job! You know us pretty well! 💕";
+            } else if (score >= quizQuestions.length * 0.5) {
+                remarkElement.textContent = "Good effort! But there's more to learn about us. 😊";
+            } else {
+                remarkElement.textContent = "It seems we need to spend more time together! 💔";
+            }
+            
+            // Add to history
+            const historyItem = {
+                date: new Date().toLocaleDateString(),
+                score: score,
+                total: quizQuestions.length
+            };
+            scoreHistory.push(historyItem);
+            updateHistoryDisplay();
+            
+            // Show results and history
+            resultsElement.style.display = 'block';
+            scoreHistoryElement.style.display = 'block';
+            
+            // Hide quiz navigation
+            document.querySelector('.quiz-nav').style.display = 'none';
+        }
+
+        // Update history display
+        function updateHistoryDisplay() {
+            historyListElement.innerHTML = '';
+            scoreHistory.forEach((item, index) => {
+                const historyItem = document.createElement('div');
+                historyItem.classList.add('score-item');
+                historyItem.innerHTML = `
+                    <span>Attempt ${index + 1} (${item.date})</span>
+                    <span>${item.score}/${item.total}</span>
+                `;
+                historyListElement.appendChild(historyItem);
+            });
+        }
+
+        // Retake quiz button
+        retakeBtn.addEventListener('click', () => {
+            currentQuestion = 0;
+            userAnswers = Array(quizQuestions.length).fill(null);
+            resultsElement.style.display = 'none';
+            document.querySelector('.quiz-nav').style.display = 'flex';
+            loadQuestion();
+        });
+
+        // Navigation functionality
+        document.querySelectorAll('.nav-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                if (this.dataset.target) {
+                    const targetSection = this.dataset.target;
+                    
+                    // Update active navigation button
+                    document.querySelectorAll('.nav-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Show target section
+                    document.querySelectorAll('.section').forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    document.getElementById(targetSection).classList.add('active');
+                    
+                    // Scroll to top
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Video load functionality
+        document.querySelector('.add-video button').addEventListener('click', function() {
+            const urlInput = document.querySelector('.add-video input');
+            const url = urlInput.value.trim();
+            
+            if (url) {
+                let embedUrl = '';
+                
+                // Check if it's a YouTube URL
+                if (url.includes('youtube.com') || url.includes('youtu.be')) {
+                    let videoId = '';
+                    
+                    if (url.includes('youtube.com')) {
+                        videoId = url.split('v=')[1];
+                        const ampersandPosition = videoId.indexOf('&');
+                        if (ampersandPosition !== -1) {
+                            videoId = videoId.substring(0, ampersandPosition);
+                        }
+                    } else if (url.includes('youtu.be')) {
+                        videoId = url.split('/').pop();
+                    }
+                    
+                    embedUrl = `https://www.youtube.com/embed/${videoId}`;
+                } else {
+                    // For other URLs, we'll just use the URL directly (this may not work for all video sites)
+                    embedUrl = url;
+                }
+                
+                const videoWrapper = document.querySelector('.video-wrapper');
+                videoWrapper.innerHTML = `<iframe width="100%" height="100%" src="${embedUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                
+                // Clear input
+                urlInput.value = '';
+            }
+        });
+
+        // Memory add functionality
+        document.querySelector('.add-memory').addEventListener('click', function() {
+            alert('To add your own photos:\n\n1. Replace the placeholder divs with your own images\n2. Add the image URL to the "src" attribute of the img tag\n3. Update the overlay text with your memory description');
+        });
+    </script>
+</body>
+</html>
